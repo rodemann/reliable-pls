@@ -23,7 +23,6 @@ diff_marg_likelihood_multi_model <- function(labeled_data,
   n_imp = nrow(unlabeled_data)
   results = matrix(nrow = n_imp, ncol = 3)
   which_flip = seq(n_imp)
-  
   for (i in seq(n_imp)) {
     
     # fit model to labeled data
@@ -59,13 +58,16 @@ diff_marg_likelihood_multi_model <- function(labeled_data,
         logistic_model %>% get_log_marg_l()
       })
       })
-    
     bayes_crit <- lapply(multi_bayes_crit, function(ppp){
-      ppp %>% unlist %>% sum
+      ppp %>% unlist %>% as.numeric %>% sum
     })
-    
-    winner <- which.max(unlist(bayes_crit))
 
+    crit_eval = unlist(bayes_crit)
+    if(length(crit_eval) != 1)
+      winner = which.max(crit_eval)
+    else
+      winner = 1
+    
     # predict on it again and add to labeled data
     predicted_target <- predict(logistic_model, newdata= unlabeled_data[winner,], type = "response")
     new_labeled_obs <- unlabeled_data[winner,]

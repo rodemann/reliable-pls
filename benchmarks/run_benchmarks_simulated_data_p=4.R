@@ -8,10 +8,10 @@ set.seed(2138720)
 # simulate data
 p = 4 
 
-feature_1 <- rnorm(n, mean = 0.2)
-feature_2 <- rnorm(n, mean = -2)
-feature_3 <- rnorm(n, mean = 1.8)
-feature_4 <- rnorm(n, mean = -1)
+feature_1 <- rnorm(n, mean = 0.2, sd = 4)
+feature_2 <- rnorm(n, mean = -2, sd = 0.3)
+feature_3 <- rnorm(n, mean = 1.8, sd = 1.3)
+feature_4 <- rnorm(n, mean = -1, sd = 1)
 feature_5 <- rnorm(n, mean = 1.5, sd = 4)
 feature_6 <- rnorm(n, mean = -1, sd = 8)
 feature_7 <- rnorm(n, mean = -2, sd = 1)

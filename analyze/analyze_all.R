@@ -28,7 +28,7 @@ library(tidyverse)
 #data = "simulated"
 # n = 80
 # p = 10
-n_methods = 7
+n_methods = 8
 n_test = nrow(data_frame)*0.5
 n_test = round(n_test)
 #number of unlabeled obs
@@ -37,10 +37,10 @@ n_imp = ((n - n_test) * share_unlabeled) %>% round()
 
 #df_onthefly <- matrix(nrow = 3, ncol = n_imp)
 onthefly_acc_paths <- data.frame("iter" = 1:n_imp, 
-                                 "Upper CB" = 1:n_imp, 
-                                 "Lower CB" = 1:n_imp,
-                                 "Mean Accuracy" = 1:n_imp,
-                                 "Method" = 1:n_imp)
+                      "Upper CB" = 1:n_imp, 
+                      "Lower CB" = 1:n_imp,
+                      "Mean Accuracy" = 1:n_imp,
+                      "Method" = 1:n_imp)
 
 onthefly_acc_paths_all = data.frame()
 
@@ -144,6 +144,8 @@ onthefly_acc_paths[1:n_imp,"Mean.Accuracy"] <- mean(c(saved_results$`Inductive C
 onthefly_acc_paths[1:n_imp,"Method"] <- "Supervised Learning"
 onthefly_acc_paths_all <- rbind(onthefly_acc_paths_all, onthefly_acc_paths)
 
+
+
 # load(paste(getwd(),"/results/standard_supervised_pen_",share_unlabeled,"_",data, "_n=", as.character(n), "_p=", as.character(p), sep=""))
 # df[7,] <- saved_results %>% unlist()
 # onthefly_acc_paths[1:n_imp,"iter"] <- 1:n_imp
@@ -153,6 +155,16 @@ onthefly_acc_paths_all <- rbind(onthefly_acc_paths_all, onthefly_acc_paths)
 # onthefly_acc_paths[1:n_imp,"Method"] <- "standard_supervised_pen"
 # onthefly_acc_paths_all <- rbind(onthefly_acc_paths_all, onthefly_acc_paths)
 # 
+
+load(paste(getwd(),"/results/diff_marg_likelihood_multi_model",share_unlabeled,"_",data, "_n=", as.character(n), "_p=", as.character(p), sep=""))
+onthefly_acc_paths[1:n_imp,"iter"] <- 1:n_imp
+onthefly_acc_paths[1:n_imp,"Upper.CB"] <- saved_results$`Inductive on-the-fly CI`[2,]
+onthefly_acc_paths[1:n_imp,"Lower.CB"] <- saved_results$`Inductive on-the-fly CI`[1,]
+onthefly_acc_paths[1:n_imp,"Mean.Accuracy"] <- saved_results$`Inductive on-the-fly mean`
+onthefly_acc_paths[1:n_imp,"Method"] <- "PPP multi-model"
+saved_results <- saved_results[-c(1,2)]
+df[8,] <- saved_results %>% unlist()
+onthefly_acc_paths_all <- rbind(onthefly_acc_paths_all, onthefly_acc_paths)
 
 
 
@@ -221,8 +233,12 @@ pal <- safe_colorblind_palette
 #plot <- plot + scale_color_discrete(name = "Kernel", labels = kernel_names)
 plot <- plot + theme(panel.background = element_rect(fill = "grey28")) +
   theme(legend.position="right") +
-  scale_color_manual(values=pal) #+
-#facet_wrap(vars(Method))
+  scale_color_manual(values=pal) +
+  xlab("Number of added pseudo-labeled data points") +
+  theme_bw()
+
+#+
+  #facet_wrap(vars(Method))
 
 # plot_no_CIs <- annotate_figure(plot,
 #                 top = text_grob(description_char, face = "bold"),
@@ -233,7 +249,7 @@ plot
 
 
 filename = paste("plots/res_plot_data=", data,"_share=",share_unlabeled, "_n=", as.character(n), "_p=", as.character(p),".png", sep = "")
-ggsave(filename=filename, plot = plot,  dpi = 300)
+ggsave(filename = filename, plot = plot,  dpi = 300)
 
 
 

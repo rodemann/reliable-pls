@@ -8,7 +8,6 @@ diff_marg_likelihood_all_ext <- function(labeled_data,
                                      glm_formula, 
                                      crit = "sum",
                                      weight = NULL) {
-  
   # some input checking
   assert_number(n_imp)
   assert_data_frame(data)
@@ -46,7 +45,7 @@ diff_marg_likelihood_all_ext <- function(labeled_data,
       new_data = rbind(labeled_data, unlabeled_data[flip_count,])
       data_sets_0[[flip_count]] = new_data 
     }
-    
+
     # fit models for 1
     marg_l_1 = list()
     models_1 = list()
@@ -88,6 +87,10 @@ diff_marg_likelihood_all_ext <- function(labeled_data,
     #marg_l_null <- logistic_model %>% get_log_marg_l()
     
     
+    
+ marg_l_0 = marg_l_0 %>% unlist %>% as.numeric()
+ marg_l_1 = marg_l_1 %>% unlist %>% as.numeric()
+ 
     switch (crit,
             "sum" = {
               crit_eval = unlist(marg_l_0) + unlist(marg_l_1)
@@ -99,16 +102,21 @@ diff_marg_likelihood_all_ext <- function(labeled_data,
               crit_eval = prob_weights_0 * unlist(marg_l_0) + prob_weights_1 * unlist(marg_l_1)
             },
             "min" = {
-              crit_eval = min(abs(unlist(marg_l_0)), abs(unlist(marg_l_1)))
+              crit_eval = min(unlist(marg_l_0), unlist(marg_l_1))
             },
             "max" = {
-              crit_eval = max(abs(unlist(marg_l_0)), abs(unlist(marg_l_1)))
+              crit_eval = max(unlist(marg_l_0), unlist(marg_l_1))
             }
     )
     
-    winner = which.min(crit_eval)
+    if(length(crit_eval) != 1)
+     winner = which.max(crit_eval)
+      else
+        winner = 1
     
-
+print(unlabeled_data[winner,])
+print(winner)
+print(crit_eval)
   #######
     # predict on it again and add to labeled data
     predicted_target <- predict(logistic_model, newdata= unlabeled_data[winner,], type = "response")

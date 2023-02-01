@@ -6,7 +6,7 @@ library(dplyr)
 set.seed(2138720)
 
 # simulate data
-p = 4 
+p = 6 
 
 feature_1 <- rnorm(n, mean = 0.2)
 feature_2 <- rnorm(n, mean = -2)
@@ -70,15 +70,13 @@ feature_59 <- rnorm(n, mean = 6, sd = 30)
 feature_60 <- rnorm(n, mean = -6, sd = 11)
 
 
-lin_comb <- 2.4- 7.9*feature_1 
+lin_comb <- 2.4- 7.9*feature_1 + 0.5*feature_2
 
 prob = 1/(1+exp(-lin_comb))
 target_var <-rbinom(n, 1, prob = prob)
 sum(target_var)
 data_frame <- data_frame(target_var = target_var, feature_1 = feature_1, feature_2 = feature_2,
-                         feature_3 = feature_3, feature_4 = feature_4)
-# , feature_5 = feature_5,
-#                          feature_6 = feature_6, feature_7 = feature_7, feature_8 = feature_8,
+                         feature_3 = feature_3, feature_4 = feature_4, feature_5 = feature_5, feature_6 = feature_6) #, feature_7 = feature_7, feature_8 = feature_8,
 #                          feature_9 = feature_9, feature_10 = feature_10, feature_11 = feature_11,
 #                          feature_12 = feature_12, feature_13 = feature_13, feature_14 = feature_14,
 #                          feature_15 = feature_15, feature_16 = feature_16, feature_17 = feature_17,
@@ -112,7 +110,7 @@ n_test = round(n_test)
 
 
 # formula for logistic regression
-formula = target_var~ 1 + feature_1 + feature_2 + feature_3 + feature_4 #+ feature_5 + feature_6 +
+formula = target_var~ 1 + feature_1 + feature_2 + feature_3 + feature_4 + feature_5 + feature_6 #+
 # feature_7 + feature_8 + feature_9 + feature_10 + feature_11 + feature_12 + feature_13 +
 # feature_14 + feature_15 + feature_16 + feature_17 + feature_18 + feature_19 + feature_20 +
 # feature_21 + feature_22 + feature_23 + feature_24 + feature_25 + feature_26 + feature_27 +
@@ -124,12 +122,14 @@ formula = target_var~ 1 + feature_1 + feature_2 + feature_3 + feature_4 #+ featu
 # feature_54 + feature_55 + feature_56 + feature_57 + feature_58 + feature_59 + feature_60
 
 
-formula_alt1 = target_var~ 1 + feature_1 + feature_2 + feature_3 #+ feature_5 + feature_6 +
+formula_alt5 = target_var~ 1 + feature_1 + feature_2 + feature_3 + feature_4 + feature_5 
+formula_alt4 = target_var~ 1 + feature_1 + feature_2 + feature_3 + feature_4# + feature_6 +
+formula_alt3 = target_var~ 1 + feature_1 + feature_2 + feature_3 #+ feature_5 + feature_6 +
 formula_alt2 = target_var~ 1 + feature_1 + feature_2  #+ feature_5 + feature_6 +
-formula_alt3 = target_var~ 1 + feature_1  #+ feature_5 + feature_6 +
+formula_alt1 = target_var~ 1 + feature_1  #+ feature_5 + feature_6 +
 
 
-formula_list = list(formula, formula_alt1, formula_alt2, formula_alt3)
+formula_list = list(formula, formula_alt1, formula_alt2, formula_alt3, formula_alt4, formula_alt5)
 
 summary <- glm(formula = formula, data = data_frame, family = "binomial") %>% summary()
 summary

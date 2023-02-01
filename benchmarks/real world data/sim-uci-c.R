@@ -1,0 +1,58 @@
+
+
+share_unlabeled = 0.8
+
+print(Sys.time()) 
+try(
+  source(paste(getwd(),"/benchmarks/run_benchmarks_eeg.R", sep=""))
+)
+try(
+  source(paste(getwd(),"/analyze/analyze.R", sep=""))
+)
+
+print(Sys.time()) 
+try(
+  source(paste(getwd(),"/benchmarks/run_benchmarks_ionoshere.R", sep=""))
+)
+try(
+  source(paste(getwd(),"/analyze/analyze.R", sep=""))
+)
+
+share_unlabeled = 0.85
+
+print(Sys.time()) 
+try(
+  source(paste(getwd(),"/benchmarks/run_benchmarks_eeg.R", sep=""))
+)
+try(
+  source(paste(getwd(),"/analyze/analyze.R", sep=""))
+)
+
+print(Sys.time()) 
+try(
+  source(paste(getwd(),"/benchmarks/run_benchmarks_ionoshere.R", sep=""))
+)
+try(
+  source(paste(getwd(),"/analyze/analyze.R", sep=""))
+)
+
+
+share_unlabeled = 0.75
+
+print(Sys.time()) 
+try(
+  source(paste(getwd(),"/benchmarks/run_benchmarks_eeg.R", sep=""))
+)
+try(
+  source(paste(getwd(),"/analyze/analyze.R", sep=""))
+)
+
+print(Sys.time()) 
+try(
+  source(paste(getwd(),"/benchmarks/run_benchmarks_ionoshere.R", sep=""))
+)
+try(
+  source(paste(getwd(),"/analyze/analyze.R", sep=""))
+)
+
+
