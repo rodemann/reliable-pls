@@ -1,0 +1,296 @@
+###############
+## global setup
+###############
+library(dplyr)
+share_unlabeled = 0.8
+set.seed(2138720)
+
+n = 400
+N = 100
+
+# simulate data
+p = 60 
+  
+feature_1 <- rnorm(n, mean = 0.2)
+feature_2 <- rnorm(n, mean = -2)
+feature_3 <- rnorm(n, mean = 1.8)
+feature_4 <- rnorm(n, mean = -1)
+feature_5 <- rnorm(n, mean = 1.5, sd = 4)
+feature_6 <- rnorm(n, mean = -1, sd = 8)
+feature_7 <- rnorm(n, mean = -2, sd = 1)
+feature_8 <- rnorm(n, mean = 0, sd = 4)
+feature_9 <- rnorm(n, mean = 4, sd = 8)
+feature_10 <- rnorm(n, mean = 2, sd = 4)
+feature_11 <- rnorm(n, mean = 3, sd = 2)
+feature_12 <- rnorm(n, mean = -2, sd = 18)
+feature_13 <- rnorm(n, mean = -1, sd = 30)
+feature_14 <- rnorm(n, mean = -1, sd = 1)
+feature_15 <- rnorm(n, mean = -1, sd = 2)
+feature_16 <- rnorm(n, mean = 20, sd = 4)
+feature_17 <- rnorm(n, mean = 1, sd = 2)
+feature_18 <- rnorm(n, mean = -5, sd = 18)
+feature_19 <- rnorm(n, mean = -9, sd = 30)
+feature_20 <- rnorm(n, mean = -1, sd = 1)
+feature_21 <- rnorm(n, mean = 23, sd = 2)
+feature_22 <- rnorm(n, mean = -21, sd = 18)
+feature_23 <- rnorm(n, mean = -14, sd = 30)
+feature_24 <- rnorm(n, mean = -2, sd = 11)
+feature_25 <- rnorm(n, mean = 0, sd = 24)
+feature_26 <- rnorm(n, mean = 2, sd = 40)
+feature_27 <- rnorm(n, mean = 60, sd = 2)
+feature_28 <- rnorm(n, mean = 41, sd = 18)
+feature_29 <- rnorm(n, mean = 64, sd = 30)
+feature_30 <- rnorm(n, mean = -13, sd = 11)
+feature_31 <- rnorm(n, mean = 0, sd = 2)
+feature_32 <- rnorm(n, mean = -22, sd = 18)
+feature_33 <- rnorm(n, mean = -19, sd = 20)
+feature_34 <- rnorm(n, mean = -21, sd = 1)
+feature_35 <- rnorm(n, mean = 0.22, sd = 24.5)
+feature_36 <- rnorm(n, mean = 2.46, sd = 40)
+feature_37 <- rnorm(n, mean = 0.46, sd = 2)
+feature_38 <- rnorm(n, mean = -42, sd = 18)
+feature_39 <- rnorm(n, mean = -67, sd = 30)
+feature_40 <- rnorm(n, mean = -12, sd = 11)
+feature_41 <- rnorm(n, mean = 24, sd = 0.2)
+feature_42 <- rnorm(n, mean = -47, sd = 18)
+feature_43 <- rnorm(n, mean = -44, sd = 30)
+feature_44 <- rnorm(n, mean = -4.67, sd = 11)
+feature_45 <- rnorm(n, mean = 3.48, sd = 24)
+feature_46 <- rnorm(n, mean = 2.576, sd = 0.1)
+feature_47 <- rnorm(n, mean = 0, sd = 0.2)
+feature_48 <- rnorm(n, mean = 74, sd = 0.18)
+feature_49 <- rnorm(n, mean = -87, sd = 3)
+feature_50 <- rnorm(n, mean = -1, sd = 0.11)
+feature_51 <- rnorm(n, mean = 98, sd = 2)
+feature_52 <- rnorm(n, mean = -41, sd = 18)
+feature_53 <- rnorm(n, mean = -14, sd = 30)
+feature_54 <- rnorm(n, mean = -45, sd = 11)
+feature_55 <- rnorm(n, mean = 0, sd = 24)
+feature_56 <- rnorm(n, mean = 20, sd = 40)
+feature_57 <- rnorm(n, mean = 3, sd = 2)
+feature_58 <- rnorm(n, mean = 4, sd = 18)
+feature_59 <- rnorm(n, mean = 6, sd = 30)
+feature_60 <- rnorm(n, mean = -6, sd = 11)
+
+
+lin_comb <- 2.4- 7.9*feature_1 
+
+prob = 1/(1+exp(-lin_comb))
+target_var <-rbinom(n, 1, prob = prob)
+sum(target_var)
+data_frame <- data_frame(target_var = target_var, feature_1 = feature_1, feature_2 = feature_2,
+                         feature_3 = feature_3, feature_4 = feature_4, feature_5 = feature_5,
+                         feature_6 = feature_6, feature_7 = feature_7, feature_8 = feature_8,
+                         feature_9 = feature_9, feature_10 = feature_10, feature_11 = feature_11,
+                         feature_12 = feature_12, feature_13 = feature_13, feature_14 = feature_14,
+                         feature_15 = feature_15, feature_16 = feature_16, feature_17 = feature_17,
+                         feature_18 = feature_18, feature_19 = feature_19, feature_20 = feature_20,
+                         feature_21 = feature_21, feature_22 = feature_22, feature_23 = feature_23,
+                         feature_24 = feature_24, feature_25 = feature_25, feature_26 = feature_26,
+                         feature_27 = feature_27, feature_28 = feature_28, feature_29 = feature_29,
+                         feature_30 = feature_30, feature_31 = feature_31,
+                         feature_32 = feature_32, feature_33 = feature_33, feature_34 = feature_34,
+                         feature_35 = feature_35, feature_36 = feature_36, feature_37 = feature_37,
+                         feature_38 = feature_38, feature_39 = feature_39, feature_40 = feature_40,
+                         feature_41 = feature_41, feature_42 = feature_42, feature_43 = feature_43,
+                         feature_44 = feature_44, feature_45 = feature_45, feature_46 = feature_46,
+                         feature_47 = feature_47, feature_48 = feature_48, feature_49 = feature_49,
+                         feature_50 = feature_50, feature_51 = feature_51,
+                         feature_52 = feature_52, feature_53 = feature_53, feature_54 = feature_54,
+                         feature_55 = feature_55, feature_56 = feature_56, feature_57 = feature_57,
+                         feature_58 = feature_58, feature_59 = feature_59, feature_60 = feature_60)
+                         
+formula <- target_var ~ .
+glm(formula = formula, data = data_frame, family = "binomial") %>% summary()
+
+data_frame = data_frame %>% as.data.frame()
+name_df = "simulated_easier" # for results 
+data = "simulated_easier" # for results 
+
+#train test splict
+n_test = nrow(data_frame)*0.5
+n_test = round(n_test)
+
+
+
+# formula for logistic regression
+formula = target_var~ 1 + feature_1 + feature_2 + feature_3 + feature_4 + feature_5 + feature_6 +
+  feature_7 + feature_8 + feature_9 + feature_10 + feature_11 + feature_12 + feature_13 +
+  feature_14 + feature_15 + feature_16 + feature_17 + feature_18 + feature_19 + feature_20 +
+  feature_21 + feature_22 + feature_23 + feature_24 + feature_25 + feature_26 + feature_27 +
+  feature_28 + feature_29 + feature_30 + feature_31 + feature_32 + feature_33 +
+  feature_34 + feature_35 + feature_36 + feature_37 + feature_38 + feature_39 + feature_40 +
+  feature_41 + feature_42 + feature_43 +
+  feature_44 + feature_45 + feature_46 + feature_47 + feature_48 + feature_49 + feature_50 +
+  feature_51 + feature_52 + feature_53 +
+  feature_54 + feature_55 + feature_56 + feature_57 + feature_58 + feature_59 + feature_60
+
+
+summary <- glm(formula = formula, data = data_frame, family = "binomial") %>% summary()
+summary
+#p <- summary$coefficients %>% nrow() - 1
+
+target = "target_var" 
+data_frame[c(target)] <- data_frame[c(target)] %>% unlist() %>% as.factor()
+levels_present <- levels(data_frame[c(target)] %>% unlist())
+# check whether labels are suited for replacement by 0,1
+levels_present
+levels(data_frame[, which(names(data_frame) %in% target)]) <- c(0,1)
+
+##########################
+# source experiments files
+##########################
+path_to_experiments = paste(getwd(),"/benchmarks/experiments", sep = "")
+
+
+# sequential sourcing
+# miceadds::source.all(path_to_experiments) 
+
+
+# parallel sourcing
+files_to_source = list.files(path_to_experiments, pattern=".R",
+                             full.names = TRUE)
+files_to_source = c("/home/ubuntu/Bayesian-pls/benchmarks/experiments/benchmark-dml-pred-ext.R")
+
+##################
+# source code dml pred ext 
+##################
+
+N = 1 # one rep
+library(dplyr)
+source("R/diff_marg_likelihood_pred_ext_bnn.R")
+
+set.seed(3405934)
+method = "diff_marg_likelihood_pred_ext_bnn"
+
+trans_res = vector()
+ind_res = vector()
+
+# share of unlabeled obs
+n_imp = ((nrow(data_frame) - n_test) * share_unlabeled) %>% round()
+print(n_imp)
+ind_res_on_the_fly = matrix(nrow = n_imp, ncol = N)
+i = N
+Sys.time() %>% print()
+
+test_rows = sample(nrow(data_frame), size = n_test)
+test_data = data_frame[test_rows,]
+
+# data frame for SSL
+data = data_frame[-test_rows,]
+
+# share of unlabeled obs
+n_imp = (nrow(data) * share_unlabeled) %>% round()
+
+
+# create data setup by randomly unlabelling data points
+unlabeled_data_inst <- sample(nrow(data), n_imp)
+labeled_data <- data[-unlabeled_data_inst,]
+labeled_data <- cbind(labeled_data,nr = 0)
+unlabeled_data <- data[unlabeled_data_inst,]
+# add number
+unlabeled_data <- cbind(unlabeled_data, nr = unlabeled_data_inst)
+true_labels = cbind(unlabeled_data$nr, unlabeled_data[c(target)])
+
+######## ENTRY TO BNN IMPLEMENT VIA BROWSER()
+
+results_list <- diff_marg_likelihood_pred_ext(labeled_data = labeled_data, 
+                                                unlabeled_data = unlabeled_data,
+                                                test_data = test_data,
+                                                target = target,
+                                                glm_formula = formula)
+
+# get transductive and inductive results
+results <- results_list[[1]]
+# get model
+model <- results_list[[2]]
+
+# on the fly test results
+ind_res_on_the_fly[,iter] <- results[,3]
+
+sorted_results = results[order(results[,1]),]
+sorted_true_labels = true_labels[order(true_labels[,1]),]
+
+# tranductive learning results
+res = sum(sorted_results[,2] == sorted_true_labels[,2])
+trans_res[iter] = res
+
+# final inductive learning results
+scores = predict(model, newdata = test_data, type = "response") 
+prediction_test <- ifelse(scores > 0.5, 1, 0)
+ind_res_iter <- sum(prediction_test == test_data[c(target)])
+
+ind_res[iter] = ind_res_iter
+
+print(iter)
+
+
+
+get_CI <- function(mean, sd, alpha = 0.05, N){
+  dist <- get_dist(sd, alpha = alpha, N)
+  c(mean - dist, mean + dist)
+}
+
+get_dist = function(sd, alpha = 0.05, n) {
+  qt(p = 1 - alpha / 2, df = n - 1) * sd / sqrt(n)
+}
+
+
+mean(trans_res)
+mean(ind_res)
+
+CI_trans <- get_CI(mean(trans_res), sd(trans_res), N = N)
+CI_trans
+
+CI_ind <- get_CI(mean(ind_res), sd(ind_res), N = N)
+CI_ind
+
+mean_ind_fly <- apply(ind_res_on_the_fly, 1, mean)
+sd_ind_fly <- apply(ind_res_on_the_fly, 1, sd)
+ind_fly = cbind(mean_ind_fly, sd_ind_fly)
+get_CI_vec <- function(mean_sd_vec, alpha = 0.05, N){
+  mean = mean_sd_vec[1]
+  sd = mean_sd_vec[2]
+  dist <- get_dist(sd, alpha = alpha, n=N)
+  c(mean - dist, mean + dist) %>% t()
+}
+CI_fly <- apply(ind_fly, 1, get_CI_vec, alpha = 0.05, N=N)
+
+
+saved_results <- list("Inductive on-the-fly mean" = mean_ind_fly,
+                      "Inductive on-the-fly CI" = CI_fly,
+                      "Inductive CI" = CI_ind,
+                      "Inductive n_test" = nrow(test_data),
+                      "Transductive CI" = CI_trans,
+                      "Transductive n_test" = nrow(true_labels),
+                      "Method" = method
+)
+
+
+# save results so that they can be accessed and visualized later
+path = paste(getwd(),"/results/diff_marg_likelihood_pred_ext_",
+             as.character(share_unlabeled),"_",as.character(name_df),
+             "_n=", as.character(nrow(data_frame)), "_p=", as.character(p), sep="")
+save(saved_results, file = path)
+
+
+
+
+
+
+
+
+# Parallelization, not important
+
+num_cores <- parallel::detectCores() - 1
+comp_clusters <- parallel::makeCluster(num_cores) # parallelize experiments
+doParallel::registerDoParallel(comp_clusters)
+object_vec = c("N", "share_unlabeled", "data_frame", "name_df", "formula", "target", "p", "n_test")
+env <- environment()
+parallel::clusterExport(cl=comp_clusters, varlist = object_vec, envir = env)
+parallel::parSapply(comp_clusters, files_to_source, source)
+
+parallel::stopCluster(comp_clusters)
+
+
+
