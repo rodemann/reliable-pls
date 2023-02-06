@@ -6,10 +6,10 @@
 
 
 ### Introduction, TOC
-This anonymous repository contains code for Selecting Pseudo-Labels the Bayesian way, as introduced in the paper "Bayes Optimal Pseudo-Label Selection for Semi-Supervised Learning"
+This repository contains code for reliable Pseudo-Label Selection, as introduced in the paper "In all Likelihoods: How to Reliably Select Pseudo-Labeled Data for Self-Training in Semi-Supervised Learning". More specifically,
 
-* [R](R) contains implementation of BPLS with PPP and alternative PLS methods to benchmark against
-* [benchmarking](benchmarking) provides files for experiments (section 4), in order to reproduce results, see setup below
+* [R](R) contains implementation of multi-model PLS, multi-lable (wieghted and unweighted) PLS and alternative PLS methods to benchmark against
+* [benchmarking](benchmarking) provides files for experiments (section 5), in order to reproduce results, see setup below
 * [data](data) contains real-world data used in experiments
 * experimental results and visualization thereof will be saved in [plots](plots) and [results](results) 
 
@@ -25,54 +25,6 @@ on
 - Linux Debian 10
 - Windows 11 Pro Build 22H2 
 
-### Bayesian Neural Net 
-
-* integrated by emilio, jann into julian's experimental framework
-* call `tf(prob)`, `keras` via `reticulate` to stay consistent with julian's code and plug bnn in as module
-
-#### Setup and Installation
-
-Setup that works on `4.15.0-65-generic` ubuntu server
-
-* tensorflow==2.10.0
-* tensorflow_probability==0.16
-* keras==2.10.0 
-* R 4.2.1 
-* python 3.10
-
-Installation:
-
-* little hick hack to get tfproba to run 
-* does not work with GPU on jann's machine
-* working approach is `install_tensorflow(extra_packages = c("keras", "tensorflow-hub", "tensorflow-probability"), version = "2.10")``
-* check header of file `R/diff_marg_likelihood_pred_ext_bnn.R`
-
-#### Prototype: 
-
-* run `benchmarks/entry_bnn.R` from R terminal until line 196 
-* run `diff_marg_likelihood_pred_ext()` and to jump into `R/diff_marg_likelihood_pred_ext_bnn.R` debug via `browser()`
-* I deleted the rep loop (i.e. set `N=1`) as still development mode
-* model trains, adapting it should be straight forward and not sure if the final bernoulli layer adds any value right now
-* Check these [Slides](https://rstudio-pubs-static.s3.amazonaws.com/547114_25698a3b3e5440158fa78cd8e083bc89.html#40) and [this blog post by Rstudio](https://blogs.rstudio.com/ai/posts/2019-06-05-uncertainty-estimates-tfprobability/) to get a good overview on BNNs in R
-
-#### Linklist:
-
-* [intro tfproba in R](https://blogs.rstudio.com/ai/posts/2019-01-08-getting-started-with-tf-probability/)
-* [rstudio intro tf proba keras](https://rstudio.github.io/tfprobability/)
-* [intro bayes nns via tfproba](https://towardsdatascience.com/introduction-to-tensorflow-probability-6d5871586c0e)
-* [Common virtual environment via 'renv'](https://alexweston013.medium.com/how-to-set-up-an-r-python-virtual-environment-using-renv-483f67d76206) (not necessary)
-* [TF Probability VI Intro Rstudio](https://blogs.rstudio.com/ai/posts/2019-06-05-uncertainty-estimates-tfprobability/)
-* [Slides on it](https://rstudio-pubs-static.s3.amazonaws.com/547114_25698a3b3e5440158fa78cd8e083bc89.html#40)
-
-#### Howto use (wip emilio, jann only)
-
-* get on remote via `ssh ubuntu@138.246.236.24` then cd into `Bayesian-pls`
-* `conda activate bnn_env` for python usage, check the `test_tf.py` for dummy bayesian mlp 
-* dummy script is `test_tf.R` with commented installation of tfproba 
-    * simply run from local `R` distribution
-    * (tldr: installation from within r package `tensorflow` works)
-    * still some fuckup with cudnn => runs only on cpu but should do for small data and models
-    * test script contains dummy code (tested by jann) for vae training via tfproba from https://rstudio.github.io/tfprobability/
 
 
 ### Setup
