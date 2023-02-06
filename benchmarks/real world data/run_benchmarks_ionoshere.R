@@ -4,10 +4,9 @@
 library(dplyr)
 library(fdm2id)
 library(gam)
-N = 100
 #share_unlabeled = 0.8
 p = 33
-n = 350
+#n = 350
 
 # read in data frame
 data(ionosphere)
@@ -29,9 +28,30 @@ vars <- c("target ~")
 for (v in 1:p) {
   vars <- c(vars, colnames(data_frame)[v])
 }
-vars = c(vars, "s(V34)")
 formula = paste(vars, collapse=" + ") %>% as.formula()
 
+
+# alt formulas:
+vars <- c("target ~")
+for (v in 1:20) {
+  v = sample(1:p,1)
+  vars <- c(vars, colnames(data_frame)[v])
+}
+formula_alt1 = paste(vars, collapse=" + ") %>% as.formula()
+vars <- c("target ~")
+for (v in 1:20) {
+  v = sample(1:p,1)
+  vars <- c(vars, colnames(data_frame)[v])
+}
+formula_alt2 = paste(vars, collapse=" + ") %>% as.formula()
+vars <- c("target ~")
+for (v in 1:20) {
+  v = sample(1:p,1)
+  vars <- c(vars, colnames(data_frame)[v])
+}
+formula_alt3 = paste(vars, collapse=" + ") %>% as.formula()
+
+formula_list = list(formula, formula_alt1, formula_alt2, formula_alt3)
 
 target = "target" 
 data_frame[c(target)] <- data_frame[c(target)] %>% unlist() %>% as.factor()
@@ -58,7 +78,7 @@ files_to_source = list.files(path_to_experiments, pattern="*.R",
 num_cores <- parallel::detectCores() - 1
 comp_clusters <- parallel::makeCluster(num_cores) # parallelize experiments
 doParallel::registerDoParallel(comp_clusters)
-object_vec = c("N", "share_unlabeled", "data_frame", "name_df", "formula", "target", "p", "n_test")
+object_vec = c("N", "share_unlabeled", "data_frame", "name_df", "formula", "formula_list", "target", "p", "n_test")
 env <- environment()
 parallel::clusterExport(cl=comp_clusters, varlist = object_vec, envir = env)
 parallel::parSapply(comp_clusters, files_to_source, source)

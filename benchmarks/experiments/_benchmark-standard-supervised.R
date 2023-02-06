@@ -1,7 +1,7 @@
 library(dplyr)
 source("R/standard_supervised.R")
 
-set.seed(3405934)
+set.seed(340593)
 method = "standard_supervised"
 
 trans_res = vector()

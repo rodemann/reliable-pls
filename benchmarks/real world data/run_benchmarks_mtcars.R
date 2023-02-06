@@ -2,7 +2,7 @@
 ## global setup
 ###############
 library(dplyr)
-N = 40
+#N = 40
 #share_unlabeled = 0.8
 n = nrow(mtcars)
 p = 3

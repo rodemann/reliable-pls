@@ -4,7 +4,7 @@
 library(dplyr)
 library(MixGHD)
 library(gam)
-N = 10
+#N = 10
 #share_unlabeled = 0.8
 p = 60
 n = 208
@@ -33,7 +33,7 @@ vars <- c("target ~")
 for (v in 1:p) {
   vars <- c(vars, colnames(data_frame)[v])
 }
-vars = c(vars, "s(V60)")
+#vars = c(vars, "s(V60)")
 
 formula = paste(vars, collapse=" + ") %>% as.formula()
 

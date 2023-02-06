@@ -2,7 +2,7 @@
 ## global setup
 ###############
 library(dplyr)
-N = 100
+#N = 100
 #share_unlabeled = 0.8
 n = 400
 p = 4
@@ -35,7 +35,7 @@ n_test = round(n_test)
 name_df = "abalone" # for results 
 data = "abalone"
 # formula for glm
-formula = target ~1 + rings + length + s(weight) + height + diameter + shell_weight    
+formula = target ~1 + rings + length + weight + height + diameter + shell_weight    
 target = "target" 
 data_frame[c(target)] <- data_frame[c(target)] %>% unlist() %>% as.factor()
 levels_present <- levels(data_frame[c(target)] %>% unlist())

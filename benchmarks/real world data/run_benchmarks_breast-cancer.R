@@ -3,7 +3,7 @@
 ###############
 library(dplyr)
 library(MixGHD)
-N = 100
+#N = 100
 #share_unlabeled = 0.8
 p = 30
 n = 400
@@ -56,7 +56,7 @@ vars <- c("target ~")
 for (v in 2:p) {
   vars <- c(vars, colnames(data_frame)[v])
 }
-vars = c(vars, "s(radius_mean)")
+#vars = c(vars, "s(radius_mean)")
 
 formula = paste(vars, collapse=" + ") %>% as.formula()
 formula
@@ -70,6 +70,7 @@ levels(data_frame[, which(names(data_frame) %in% target)]) <- c(0,1)
 
 glm(formula = formula, data = data_frame, family = "binomial") %>% summary
 
+formula_list = list(formula)
 
 ##########################
 # source experiments files
@@ -86,7 +87,7 @@ files_to_source = list.files(path_to_experiments, pattern="*.R",
 num_cores <- parallel::detectCores() - 1
 comp_clusters <- parallel::makeCluster(num_cores) # parallelize experiments
 doParallel::registerDoParallel(comp_clusters)
-object_vec = c("N", "share_unlabeled", "data_frame", "name_df", "formula", "target", "p", "n_test")
+object_vec = c("N", "share_unlabeled", "data_frame", "name_df", "formula", "formula_list", "target", "p", "n_test")
 env <- environment()
 parallel::clusterExport(cl=comp_clusters, varlist = object_vec, envir = env)
 parallel::parSapply(comp_clusters, files_to_source, source)

@@ -29,7 +29,7 @@ library(tidyverse)
 # n = 80
 # p = 10
 n_methods = 8
-n_test = nrow(data_frame)*0.5
+#n_test = nrow(data_frame)*0.5
 n_test = round(n_test)
 #number of unlabeled obs
 n_imp = ((n - n_test) * share_unlabeled) %>% round()
