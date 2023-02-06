@@ -1,5 +1,5 @@
 
-# *  In all Likelihood\textit{s}: *
+# *In all LikelihoodS*
 
 ## How to Reliably Select Pseudo-Labeled Data for Self-Training in Semi-Supervised Learning
 
