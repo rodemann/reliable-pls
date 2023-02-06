@@ -3,7 +3,8 @@
 
 ## How to Reliably Select Pseudo-Labeled Data for Self-Training in Semi-Supervised Learning
 
-###  ![test](plots/res_plot_data=simulated_share=0.7_n=40_p=10.jpeg| width=100)
+<img src="plots/res_plot_data=simulated_share=0.8_n=60_p=6.png" width="250"> <img src="plots/res_plot_data=simulated_share=0.8_n=100_p=6.png" width="250"><img src="plots/res_plot_data=simulated_share=0.8_n=140_p=6.png" width="250"><img src="plots/res_plot_data=simulated_share=0.8_n=200_p=6.png" width="250">
+
 
 ### Introduction, TOC
 This repository contains code for reliable Pseudo-Label Selection, as introduced in the paper "In all Likelihoods: How to Reliably Select Pseudo-Labeled Data for Self-Training in Semi-Supervised Learning". More specifically,
