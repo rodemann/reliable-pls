@@ -1,7 +1,7 @@
 
-# *Bayesian(,) pl(ea)s(e)!*
+# *  In all Likelihood\textit{s}: *
 
-## Bayesian Pseudo-Label Selection (Bayesian-pls) 
+## How to Reliably Select Pseudo-Labeled Data for Self-Training in Semi-Supervised Learning
 
 
 
