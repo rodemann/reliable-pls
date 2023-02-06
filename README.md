@@ -13,7 +13,8 @@ This repository contains implementation, results and experimenal scripts for rel
 * [benchmarking](benchmarking) provides files for experiments (section 5), in order to reproduce results, see setup below
 * [data](data) contains real-world data used in experiments
 * experimental results and visualization thereof will be saved in [plots](plots) and [results](results) 
-* further results can be found in [plots](plots) and in this very README-file
+* all results can be found in [plots](plots) 
+* In order to reproduce experiments, please read **setup** further below
 
 
 ### Tested with
