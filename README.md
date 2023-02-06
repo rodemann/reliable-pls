@@ -6,7 +6,7 @@
 <img src="plots/res_plot_data=simulated_share=0.8_n=60_p=6.png" width="250"> <img src="plots/res_plot_data=simulated_share=0.8_n=100_p=6.png" width="250"><img src="plots/res_plot_data=simulated_share=0.8_n=140_p=6.png" width="250"><img src="plots/res_plot_data=simulated_share=0.8_n=200_p=6.png" width="250">
 
 
-### Introduction, TOC
+## Introduction, TOC
 This repository contains implementation, results and experimenal scripts for reliable Pseudo-Label Selection, as introduced in the paper "In all Likelihoods: How to Reliably Select Pseudo-Labeled Data for Self-Training in Semi-Supervised Learning". More specifically,
 
 * [R](R) contains implementation of multi-model PLS, multi-lable (wieghted and unweighted) PLS and alternative PLS methods to benchmark against
@@ -16,21 +16,65 @@ This repository contains implementation, results and experimenal scripts for rel
 * all results can be found in [plots](plots) 
 * In order to reproduce experiments, please read **setup** further below
 
+## Results
 
-### Tested with
+### **Banknote data:**
 
-- R 4.2.0
-- R 4.1.6
-- R 4.0.3
+**[Banknote data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 3, subsample of size n = 60)**
 
-on
-- Linux Ubuntu 20.04
-- Linux Debian 10
-- Windows 11 Pro Build 22H2 
+<img src="plots/res_plot_data=simulated_share=0.8_n=60_p=6.png" width="600"> 
+
+**[Banknote data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 3, subsample of size n = 100)**
+
+<img src="plots/res_plot_data=simulated_share=0.8_n=100_p=6.png" width="600"> 
+
+**[Banknote data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 3, subsample of size n = 140)**
+
+<img src="plots/res_plot_data=simulated_share=0.8_n=140_p=6.png" width="600"> 
+
+**[Banknote data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 3, subsample of size n = 180)**
+
+<img src="plots/res_plot_data=simulated_share=0.8_n=180_p=6.png" width="600"> 
+
+
+### **Simulated data**
+
+**[Simulated data](benchmarks/run_benchmarks_simulated_data_multi_model_p=6.R) (q = 6, n = 60)**
+
+<img src="plots/res_plot_data=simulated_share=0.8_n=60_p=6.png" width="600"> 
+
+**[Simulated data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 6, n = 100)**
+
+<img src="plots/res_plot_data=simulated_share=0.8_n=100_p=6.png" width="600"> 
+
+**[Simulated data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 6, n = 140)**
+
+<img src="plots/res_plot_data=simulated_share=0.8_n=140_p=6.png" width="600"> 
+
+**[Simulated data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 6, n = 160)**
+
+<img src="plots/res_plot_data=simulated_share=0.8_n=160_p=6.png" width="600"> 
+
+**[Simulated data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 6, n = 180)**
+
+<img src="plots/res_plot_data=simulated_share=0.8_n=180_p=6.png" width="600"> 
+
+**[Simulated data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 6, n = 200)**
+
+<img src="plots/res_plot_data=simulated_share=0.8_n=200_p=6.png" width="600"> 
 
 
 
-### Setup
+
+
+<img src="plots/res_plot_data=simulated_share=0.8_n=60_p=6.png" width="250"> 
+<img src="plots/res_plot_data=simulated_share=0.8_n=60_p=6.png" width="250"> 
+
+
+
+
+
+## Setup
 
 First and foremost, please install all dependencies by sourcing [this file](_setup_session.R).
 
@@ -63,13 +107,24 @@ Eventually, download [benchmarks/experiments_simulated_data.R](benchmarks/experi
 
 Important: Create empty folders [results](results) and [plots](plots) where experimental results will be stored automatically. In addition, you can access them as object after completion of the experiments.
 
+### Tested with
 
-### Further experiments
+- R 4.2.0
+- R 4.1.6
+- R 4.0.3
+
+on
+- Linux Ubuntu 20.04
+- Linux Debian 10
+- Windows 11 Pro Build 22H2 
+
+
+## Further experiments
 
 Additional experimental setups can now easily be created by modifying [benchmarks/experiments_simulated_data.R](benchmarks/experiments_simulated_data.R)
 
 
-### Data
+## Data
 
 Find data and files to read in data in folder [data](data). 
 
