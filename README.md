@@ -1,5 +1,5 @@
 
-# *In all LikelihoodS*
+# *In all Likelihoods*
 
 ## How to Reliably Select Pseudo-Labeled Data for Self-Training in Semi-Supervised Learning
 
