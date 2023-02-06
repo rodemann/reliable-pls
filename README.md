@@ -3,7 +3,7 @@
 
 ## How to Reliably Select Pseudo-Labeled Data for Self-Training in Semi-Supervised Learning
 
-<img src="plots/res_plot_data=simulated_share=0.8_n=60_p=6.png" width="250"> <img src="plots/res_plot_data=simulated_share=0.8_n=100_p=6.png" width="250"><img src="plots/res_plot_data=simulated_share=0.8_n=140_p=6.png" width="250"><img src="plots/res_plot_data=simulated_share=0.8_n=200_p=6.png" width="250">
+<img src="plots/res_plot_data=simulated_share=0.8_n=60_p=6.png" width="150"> <img src="plots/res_plot_data=simulated_share=0.8_n=100_p=6.png" width="150"><img src="plots/res_plot_data=simulated_share=0.8_n=140_p=6.png" width="150"><img src="plots/res_plot_data=simulated_share=0.8_n=200_p=6.png" width="150">
 
 
 ## Introduction, TOC
@@ -20,56 +20,64 @@ This repository contains implementation, results and experimenal scripts for rel
 
 ### **Banknote data:**
 
-**[Banknote data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 3, subsample of size n = 60)**
+**[Banknote data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 3, subsample of size n = 60, share of unlabeled = 0.8)**
 
 <img src="plots/res_plot_data=simulated_share=0.8_n=60_p=6.png" width="600"> 
 
-**[Banknote data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 3, subsample of size n = 100)**
+**[Banknote data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 3, subsample of size n = 100, share of unlabeled = 0.8)**
 
 <img src="plots/res_plot_data=simulated_share=0.8_n=100_p=6.png" width="600"> 
 
-**[Banknote data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 3, subsample of size n = 140)**
+**[Banknote data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 3, subsample of size n = 140, share of unlabeled = 0.8)**
 
 <img src="plots/res_plot_data=simulated_share=0.8_n=140_p=6.png" width="600"> 
 
-**[Banknote data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 3, subsample of size n = 180)**
+**[Banknote data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 3, subsample of size n = 180, share of unlabeled = 0.8)**
 
 <img src="plots/res_plot_data=simulated_share=0.8_n=180_p=6.png" width="600"> 
 
 
 ### **Simulated data**
 
-**[Simulated data](benchmarks/run_benchmarks_simulated_data_multi_model_p=6.R) (q = 6, n = 60)**
+**[Simulated data](benchmarks/run_benchmarks_simulated_data_multi_model_p=6.R) (q = 6, n = 60, share of unlabeled = 0.8)**
 
 <img src="plots/res_plot_data=simulated_share=0.8_n=60_p=6.png" width="600"> 
 
-**[Simulated data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 6, n = 100)**
+**[Simulated data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 6, n = 100, share of unlabeled = 0.8)**
 
 <img src="plots/res_plot_data=simulated_share=0.8_n=100_p=6.png" width="600"> 
 
-**[Simulated data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 6, n = 140)**
+**[Simulated data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 6, n = 140, share of unlabeled = 0.8)**
 
 <img src="plots/res_plot_data=simulated_share=0.8_n=140_p=6.png" width="600"> 
 
-**[Simulated data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 6, n = 160)**
+**[Simulated data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 6, n = 160, share of unlabeled = 0.8)**
 
 <img src="plots/res_plot_data=simulated_share=0.8_n=160_p=6.png" width="600"> 
 
-**[Simulated data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 6, n = 180)**
+**[Simulated data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 6, n = 180, share of unlabeled = 0.8)**
 
 <img src="plots/res_plot_data=simulated_share=0.8_n=180_p=6.png" width="600"> 
 
-**[Simulated data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 6, n = 200)**
+**[Simulated data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 6, n = 200, share of unlabeled = 0.8)**
 
 <img src="plots/res_plot_data=simulated_share=0.8_n=200_p=6.png" width="600"> 
 
 
 
+### **Cars data**
 
+**[Simulated data](https://archive.ics.uci.edu/ml/datasets/auto+mpg) (q =3, n = 32, share of unlabeled = 0.7)**
 
-<img src="plots/res_plot_data=simulated_share=0.8_n=60_p=6.png" width="250"> 
-<img src="plots/res_plot_data=simulated_share=0.8_n=60_p=6.png" width="250"> 
+<img src="plots/res_plot_data=mtcars_share=0.7_n=32_p=3.png" width="600"> 
 
+**[Simulated data](https://archive.ics.uci.edu/ml/datasets/auto+mpg) (q =3, n = 32, share of unlabeled = 0.8)**
+
+<img src="plots/res_plot_data=simulated_share=0.8_n=32_p=3.png" width="600"> 
+
+**[Simulated data](https://archive.ics.uci.edu/ml/datasets/auto+mpg) (q =3, n = 32, share of unlabeled = 0.9)**
+
+<img src="plots/res_plot_data=simulated_share=0.9_n=32_p=3.png" width="600"> 
 
 
 
