@@ -18,8 +18,9 @@ This repository contains implementation, results and experimenal scripts for rel
 
 ## Results
 
-### **Banknote data:**
-
+##
+### **Banknote data**
+##
 **[Banknote data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 3, subsample of size n = 60, share of unlabeled = 0.8)**
 
 <img src="plots/res_plot_data=simulated_share=0.8_n=60_p=6.png" width="600"> 
@@ -37,16 +38,16 @@ This repository contains implementation, results and experimenal scripts for rel
 <img src="plots/res_plot_data=simulated_share=0.8_n=180_p=6.png" width="600"> 
 
 
-
+##
 ### **Cars data**
-
+##
 **[Cars data](https://archive.ics.uci.edu/ml/datasets/auto+mpg) (q =3, n = 32, share of unlabeled = 0.7)**
 
 <img src="plots/res_plot_data=mtcars_share=0.7_n=32_p=3.png" width="600"> 
 
-**[Cars data](https://archive.ics.uci.edu/ml/datasets/auto+mpg) (q =3, n = 32, share of unlabeled = 0.8)**
+<!---**[Cars data](https://archive.ics.uci.edu/ml/datasets/auto+mpg) (q =3, n = 32, share of unlabeled = 0.8)**--->
 
-<img src="plots/res_plot_data=mtcars_share=0.8_n=32_p=3.png" width="600"> 
+<!---<img src="plots/res_plot_data=mtcars_share=0.8_n=32_p=3.png" width="600"> --->
 
 **[Cars data](https://archive.ics.uci.edu/ml/datasets/auto+mpg) (q =3, n = 32, share of unlabeled = 0.9)**
 
@@ -59,9 +60,9 @@ This repository contains implementation, results and experimenal scripts for rel
 
 
 
-
+##
 ### **Simulated data**
-
+##
 **[Simulated data](benchmarks/run_benchmarks_simulated_data_multi_model_p=6.R) (q = 6, n = 60, share of unlabeled = 0.8)**
 
 <img src="plots/res_plot_data=simulated_share=0.8_n=60_p=6.png" width="600"> 
