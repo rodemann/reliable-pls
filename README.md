@@ -23,19 +23,19 @@ This repository contains implementation, results and experimenal scripts for rel
 ##
 **[Banknote data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 3, subsample of size n = 60, share of unlabeled = 0.8)**
 
-<img src="plots/res_plot_data=banknote_share=0.8_n=60_p=6.png" width="600"> 
+<img src="plots/res_plot_data=banknote_share=0.8_n=60_p=3.png" width="600"> 
 
 **[Banknote data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 3, subsample of size n = 100, share of unlabeled = 0.8)**
 
-<img src="plots/res_plot_data=banknote_share=0.8_n=100_p=6.png" width="600"> 
+<img src="plots/res_plot_data=banknote_share=0.8_n=100_p=3.png" width="600"> 
 
 **[Banknote data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 3, subsample of size n = 140, share of unlabeled = 0.8)**
 
-<img src="plots/res_plot_data=banknote_share=0.8_n=140_p=6.png" width="600"> 
+<img src="plots/res_plot_data=banknote_share=0.8_n=140_p=3.png" width="600"> 
 
 **[Banknote data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 3, subsample of size n = 180, share of unlabeled = 0.8)**
 
-<img src="plots/res_plot_data=banknote_share=0.8_n=180_p=6.png" width="600"> 
+<img src="plots/res_plot_data=banknote_share=0.8_n=180_p=3.png" width="600"> 
 
 
 ##
