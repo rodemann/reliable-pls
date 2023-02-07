@@ -58,6 +58,23 @@ This repository contains implementation, results and experimenal scripts for rel
 <img src="plots/res_plot_data=mtcars_share=0.95_n=32_p=3.png" width="600"> 
 
 
+##
+### **Mushrooms data**
+##
+**[Mushrooms data](https://archive.ics.uci.edu/ml/datasets/mushrooms) (q =3, n = 120, share of unlabeled = 0.8)**
+
+<img src="plots/res_plot_data=mushrooms_share=0.9_n=120_p=3.png" width="600"> 
+
+<!---**[Mushrooms data](https://archive.ics.uci.edu/ml/datasets/mushrooms) (q =3, n = 120, share of unlabeled = 0.8)**--->
+
+<!---<img src="plots/res_plot_data=mushrooms_share=0.9_n=120_p=3.png" width="600"> --->
+
+**[Mushrooms data](https://archive.ics.uci.edu/ml/datasets/mushrooms) (q =3, n = 120, share of unlabeled = 0.8)**
+
+<img src="plots/res_plot_data=mushrooms_share=0.9_n=120_p=3.png" width="600"> 
+
+
+
 
 
 ##
