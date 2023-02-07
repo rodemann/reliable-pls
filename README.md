@@ -6,7 +6,7 @@
 <img src="plots/res_plot_data=simulated_share=0.8_n=60_p=6.png" width="150"> <img src="plots/res_plot_data=simulated_share=0.8_n=100_p=6.png" width="150"><img src="plots/res_plot_data=simulated_share=0.8_n=140_p=6.png" width="150"><img src="plots/res_plot_data=simulated_share=0.8_n=200_p=6.png" width="150">
 
 
-## Introduction, TOC
+## Introduction, Table of Contents
 This repository contains implementation, results and experimenal scripts for reliable Pseudo-Label Selection, as introduced in the paper "In all Likelihoods: How to Reliably Select Pseudo-Labeled Data for Self-Training in Semi-Supervised Learning". More specifically,
 
 * [R](R) contains implementation of multi-model PLS, multi-lable (wieghted and unweighted) PLS and alternative PLS methods to benchmark against
