@@ -65,11 +65,11 @@ This repository contains implementation, results and experimenal scripts for rel
 
 <img src="plots/res_plot_data=mushrooms_share=0.9_n=120_p=3.png" width="600"> 
 
-<!---**[Mushrooms data](https://archive.ics.uci.edu/ml/datasets/mushrooms) (q =3, n = 120, share of unlabeled = 0.8)**--->
+**[Mushrooms data](https://archive.ics.uci.edu/ml/datasets/mushrooms) (q =3, n = 160, share of unlabeled = 0.8)**
 
-<!---<img src="plots/res_plot_data=mushrooms_share=0.9_n=120_p=3.png" width="600"> --->
+<img src="plots/res_plot_data=mushrooms_share=0.9_n=160_p=3.png" width="600">
 
-**[Mushrooms data](https://archive.ics.uci.edu/ml/datasets/mushrooms) (q =3, n = 120, share of unlabeled = 0.8)**
+**[Mushrooms data](https://archive.ics.uci.edu/ml/datasets/mushrooms) (q =3, n = 200, share of unlabeled = 0.8)**
 
 <img src="plots/res_plot_data=mushrooms_share=0.9_n=120_p=3.png" width="600"> 
 
