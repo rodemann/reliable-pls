@@ -41,24 +41,6 @@ This repository contains implementation, results and experimenal scripts for rel
 <img src="plots/res_plot_data=banknote_share=0.8_n=40_p=3.png" width="600"> 
 
 
-##
-### **Cars data**
-##
-**[Cars data](https://archive.ics.uci.edu/ml/datasets/auto+mpg) (q =3, n = 32, share of unlabeled = 0.7)**
-
-<img src="plots/res_plot_data=mtcars_share=0.7_n=32_p=3.png" width="600"> 
-
-<!---**[Cars data](https://archive.ics.uci.edu/ml/datasets/auto+mpg) (q =3, n = 32, share of unlabeled = 0.8)**--->
-
-<!---<img src="plots/res_plot_data=mtcars_share=0.8_n=32_p=3.png" width="600"> --->
-
-**[Cars data](https://archive.ics.uci.edu/ml/datasets/auto+mpg) (q =3, n = 32, share of unlabeled = 0.9)**
-
-<img src="plots/res_plot_data=mtcars_share=0.9_n=32_p=3.png" width="600"> 
-
-**[Cars data](https://archive.ics.uci.edu/ml/datasets/auto+mpg) (q =3, n = 32, share of unlabeled = 0.95)**
-
-<img src="plots/res_plot_data=mtcars_share=0.95_n=32_p=3.png" width="600"> 
 
 
 ##
@@ -106,6 +88,27 @@ This repository contains implementation, results and experimenal scripts for rel
 **[Simulated data](https://archive.ics.uci.edu/ml/datasets/banknote+authentication) (q = 6, n = 200, share of unlabeled = 0.8)**
 
 <img src="plots/res_plot_data=simulated_share=0.8_n=200_p=6.png" width="600"> 
+
+
+##
+### **Cars data**
+##
+**[Cars data](https://archive.ics.uci.edu/ml/datasets/auto+mpg) (q =3, n = 32, share of unlabeled = 0.7)**
+
+<img src="plots/res_plot_data=mtcars_share=0.7_n=32_p=3.png" width="600"> 
+
+<!---**[Cars data](https://archive.ics.uci.edu/ml/datasets/auto+mpg) (q =3, n = 32, share of unlabeled = 0.8)**--->
+
+<!---<img src="plots/res_plot_data=mtcars_share=0.8_n=32_p=3.png" width="600"> --->
+
+**[Cars data](https://archive.ics.uci.edu/ml/datasets/auto+mpg) (q =3, n = 32, share of unlabeled = 0.9)**
+
+<img src="plots/res_plot_data=mtcars_share=0.9_n=32_p=3.png" width="600"> 
+
+**[Cars data](https://archive.ics.uci.edu/ml/datasets/auto+mpg) (q =3, n = 32, share of unlabeled = 0.95)**
+
+<img src="plots/res_plot_data=mtcars_share=0.95_n=32_p=3.png" width="600"> 
+
 
 
 
